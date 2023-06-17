@@ -80,13 +80,68 @@ var secondItem=document.querySelector('.list-group-item:nth-child(2)');
 secondItem.style.color='green';
 
 //QUERYSELECTORALL//
-var titles=document.querySelectorAll('.title');
-console.log(titles);
-titles[0].textContent='Hello';
+// var titles=document.querySelectorAll('.title');
+// console.log(titles);
+// titles[0].textContent='Hello';
 
-var odd=document.querySelectorAll('li:nth-child(odd)');
-var even=document.querySelectorAll('li:nth-child(even)');
-for(var i=0;i<odd.length;i++){
-    odd[i].style.backgroundColor='green';
-    even[i].style.backgroundColor='#ccc';
-}
+// var odd=document.querySelectorAll('li:nth-child(odd)');
+// var even=document.querySelectorAll('li:nth-child(even)');
+// for(var i=0;i<odd.length;i++){
+//     odd[i].style.backgroundColor='green';
+//     even[i].style.backgroundColor='#ccc';
+// }
+
+
+//TRAVERSING DOM//
+var itemList=document.querySelector('#items');
+//parentNode
+// console.log(itemList.parentNode);
+// itemList.parentNode.style.backgroundColor='#f4f4f4';
+// console.log(itemList.parentNode.parentNode.parentNode);
+
+
+// //parentElement
+// console.log(itemList.parentElement);
+// itemList.parentElement.style.backgroundColor='#f4f4f4';
+// console.log(itemList.parentElement.parentElement.parentElement);
+
+//childNodes
+// console.log(itemList.childNodes);
+
+// console.log(itemList.children);
+// itemList.children[1].style.backgroundColor='yellow';
+
+// //firstChild
+// console.log(itemList.firstChild);
+// //firstElementChild
+// console.log(itemList.firstElementChild);
+// itemList.firstElementChild.textContent='Hello 1';
+
+// itemList.lastElementChild.textContent='Hello 4';
+
+
+//nextSibling
+// console.log(itemList.nextSibling);
+// //previousSibling
+// console.log(itemList.previousSibling);
+// itemList.previousElementSibling.style.color='green';
+
+//createElement
+//create a div
+var newDiv=document.createElement('div');
+newDiv.className='hello';
+
+newDiv.id='hello1';
+
+newDiv.setAttribute('title','Hello Div');
+
+var newDivText=document.createTextNode('Hello world');
+newDiv.appendChild(newDivText);
+
+var container=document.querySelector('header .container');
+var h1=document.querySelector('header h1');
+
+
+console.log(newDiv);
+newDiv.style.fontSize='30px';
+container.insertBefore(newDiv,h1);
