@@ -1,10 +1,8 @@
-
-
 var form=document.getElementById('form');
-var message=document.querySelector('#message');
-
+var userList=document.getElementById('m');
 
 form.addEventListener('submit',addItem);
+
 
 function addItem(event){
     event.preventDefault();
@@ -12,18 +10,40 @@ function addItem(event){
     var email=document.getElementById('email').value;
     var phone_number=document.getElementById('phone_number').value;
     
-    //creating li elements
+    //creating li element
     var item=document.createElement('li');
-    item.className='list-group-item list';
     
-    item.appendChild(document.createTextNode(username+" "+email+" "+phone_number));
+    //creating Delete Button
+    var deleteBtn=document.createElement('button');
+    //deleteBtn.className='delete';
+    deleteBtn.className='btn btn-sm float-right btn-danger delete';
+    deleteBtn.appendChild(document.createTextNode('Delete'));
+
+
+    item.appendChild(document.createTextNode(username+" "+email+" "+phone_number+" "));
+    item.appendChild(deleteBtn);
     var obj={
         "username":username,
         "email":email,
         "phone number":phone_number
     };
-
-    message.appendChild(item);
-    localStorage.setItem(username,JSON.stringify(obj));
     
+    
+    userList.appendChild(item);
+
+    localStorage.setItem(JSON.parse(JSON.stringify(obj.username)), JSON.stringify(obj));
+    //localStorage.setItem(username,JSON.stringify(obj));
+    
+    
+}
+
+userList.addEventListener('click',deleteItem);
+
+function deleteItem(e){
+    if(e.target.classList.contains('delete')){
+        var li = e.target.parentElement;
+        userList.removeChild(li);
+        console.log(Object.keys(e));
+        localStorage.removeItem("isTrusted");
+    }
 }
