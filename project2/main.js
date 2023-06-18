@@ -84,6 +84,7 @@ function addItem(e){
   var newItem1 = document.getElementById('item1').value;
   var newItem2 = document.getElementById('item2').value;
   var newItem=newItem1+" "+newItem2;
+  localStorage.setItem(newItem1,newItem2);
 
   // Create new li element
   var li = document.createElement('li');
