@@ -86,20 +86,33 @@ function getPosts(){
 function updateLastUserActivityTime(){
     return new Promise((resolve,reject)=>{
         posts[posts.length-1].activityTime=new Date().getTime();
-        resolve(posts[0].activityTime);
+        resolve(posts[posts.length-1].activityTime);
     })
     
 }
+async function fun(){
+    try{
+        const promise1=await createPost({
+            name:'Hari charan',
+            activityTime:new Date().getTime()
+        });
+        const promise3=await getPosts();
+        const promise2=await updateLastUserActivityTime();
+        console.log(promise2);
 
-const promise1=createPost({
-    name:'Hari charan',
-    activityTime:new Date().getTime()
-});
-const promise2=updateLastUserActivityTime();
+        // Promise.all([promise1,promise2]).then((p1,p2)=>{
+        //     console.log(`${p2}`);
+        // });
+        
+    }catch(err){
+        console.log(err);
+    }
+}
 
-Promise.all([promise1,promise2])
-.then(([createresolve,updatetimeresolve])=>{
-    getPosts();
-    console.log(updatetimeresolve)
-    })
-.catch((err)=>console.log(err));
+fun()
+// Promise.all([promise1,promise2])
+// .then(([createresolve,updatetimeresolve])=>{
+//     getPosts();
+//     console.log(updatetimeresolve)
+//     })
+// .catch((err)=>console.log(err));
