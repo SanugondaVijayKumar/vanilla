@@ -48,9 +48,22 @@
 //     }
 // }
 
+var output='';
 
-
-
+window.addEventListener("DOMContentLoaded",()=>{
+    axios.get('https://crudcrud.com/api/a5e5a3ce16bf4e9b81ee1c77e17c00d9/appointmentData')
+    .then((response)=>{
+        console.log(response.data);
+        for(var i=0;i<response.data.length;i++){
+            let word=`<li>${response.data[i].username}:${response.data[i].email}</li>`;
+            output=output+word;
+        }
+        document.body.innerHTML=document.body.innerHTML+output;
+    })
+    .catch((err)=>{
+        console.log(err);
+    })
+})
 
 
 const myForm = document.querySelector('#my-form')
