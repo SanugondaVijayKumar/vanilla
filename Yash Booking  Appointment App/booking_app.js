@@ -23,6 +23,7 @@ function saveToLocalStorage(event){
     showNewUserOnScreen(obj);
 }
 
+
 window.addEventListener("DOMContentLoaded", () => {
     axios.get('https://crudcrud.com/api/1f4d321a88864a69aa3f5cad21293645/data')
     .then((response)=>{
