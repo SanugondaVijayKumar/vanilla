@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flipkart App</title>
+</head>
+<body>
+    <form onsubmit="AddItem(event)">
+        <label for="selling_price">Selling Price:</label>
+        <input type="number" id="selling_price">
+        <label for="product_name">Product Name:</label>
+        <input type="text" id="product_name">
+        <input type="submit" value="Add Product">
+    </form>
+    <h1>Products</h1>
+    <ul id="Items"></ul>
+    <h3 style="display: inline-block;">Total Value Worth of Products:</h3><div style="display: inline-block;" id="totalCost"></div>
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
