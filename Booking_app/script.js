@@ -99,7 +99,12 @@ function onSubmit(e){
             username : nameInput.value,
             email : emailInput.value
         }
-        localStorage.setItem(JSON.parse(JSON.stringify(myObj.email)), JSON.stringify(myObj))
+        //localStorage.setItem(JSON.parse(JSON.stringify(myObj.email)), JSON.stringify(myObj))
+        axios.post('https://crudcrud.com/api/a5e5a3ce16bf4e9b81ee1c77e17c00d9/appointmentData',myObj)
+        .then((response)=>{
+            console.log(response);
+        })
+        .catch((err)=>console.log(err));
         //CLear fields
         nameInput.value = ''
         emailInput.value = ''
